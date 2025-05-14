@@ -36,6 +36,10 @@ def main():
             if aster.collision(player) == True:
                 print("Game Over!")
                 return
+            for shot in shots:
+                if shot.collision(aster):
+                    shot.kill()
+                    aster.split()
         for obj in drawable:
             obj.draw(screen)
         pygame.display.flip()
